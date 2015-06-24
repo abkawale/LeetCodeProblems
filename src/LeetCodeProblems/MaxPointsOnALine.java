@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.
  */
 package LeetCodeProblems;
 
@@ -30,10 +28,12 @@ public class MaxPointsOnALine {
         }
     }
 
+  
+
     /**
      *
-     * @param points
-     * @return
+     * @param points - Array of points
+     * @return max points on a line
      */
     public int maxPoints(Point[] points) {
 
@@ -42,7 +42,7 @@ public class MaxPointsOnALine {
         }
         int maxCount = 1;
         Map<Double, Integer> slopeMap = new HashMap<>();
-
+        
         for (int i = 0; i < points.length; i++) {
 
             slopeMap.clear();
@@ -56,7 +56,6 @@ public class MaxPointsOnALine {
                 }
 
                 double slope = computeSlope(points[i], points[j]);
-                System.out.println(i + " " + j + " " + slope);
                 if (slopeMap.containsKey(slope)) {
                     slopeMap.put(slope, slopeMap.get(slope) + 1);
                 } else {
@@ -74,11 +73,7 @@ public class MaxPointsOnALine {
     }
 
     private double computeSlope(Point a, Point b) {
-        double ax = (double) a.x;
-        double bx = (double) b.x;
-        double ay = (double) a.y;
-        double by = (double) b.y;
-        return bx != ax ? 0.0 + (by - ay) / (bx - ax) : Double.MAX_VALUE;
+        return b.x!=a.x? 0.0+(double)(b.y-a.y)/(b.x-a.x): Double.MAX_VALUE;
     }
-
+    
 }

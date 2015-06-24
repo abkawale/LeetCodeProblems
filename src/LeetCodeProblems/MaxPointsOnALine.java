@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  *
- * @author Hadoop
+ * @author Abhay Kawale
  */
 public class MaxPointsOnALine {
 
